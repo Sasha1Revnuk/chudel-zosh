@@ -67,7 +67,7 @@
         <!-- END Mobile Navigation -->
 
         <!-- Logo -->
-        <a class="navbar-brand " href="{{route('main')}}" style="padding-top: 0px"><h4 style="color:#ffffff"><span style="color:#fdc632">< &#8260; > </span><strong>eduready</strong></h4></a>
+        <a class="navbar-brand " href="{{route('main')}}" style="padding-top: 0px"><h4 style="color:#ffffff"><strong>Чудельська ЗОШ І-ІІІ ступенів</strong></h4></a>
 
         <!-- Loading Indicator, Used for demostrating how loading of widgets could happen, check main.js - uiDemo() -->
         <div id="loading" class="pull-left"><i class="fa fa-certificate fa-spin"></i></div>
