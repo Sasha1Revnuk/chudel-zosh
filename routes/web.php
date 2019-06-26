@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/adm', 'Admin\IndexController@index')->name('main-admin');
+Route::get('/', 'IndexController@index')->name('main');
+Route::get('/logout', function(){
+    \Illuminate\Support\Facades\Auth::logout();
+    return redirect()->route('main');
+});
+

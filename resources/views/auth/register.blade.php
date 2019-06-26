@@ -1,77 +1,105 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <title>Реєстрація</title>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+    <meta name="author" content="pixelcave">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="{{asset('/admin/img/favicon.ico')}}">
+    <!-- END Icons -->
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+    <!-- Stylesheets -->
+    <!-- Bootstrap is included in its original form, unaltered -->
+    <link rel="stylesheet" href="{{asset('/admin/css/bootstrap.css')}}">
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+    <!-- Related styles of various javascript plugins -->
+    <link rel="stylesheet" href="{{asset('/admin/css/plugins.css')}}">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+    <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+    <link rel="stylesheet" href="{{asset('/admin/css/main.css')}}">
+    <!-- END Stylesheets -->
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+    <!-- Modernizr (browser feature detection library) & Respond.js (Enable responsive CSS code on browsers that don't support it, eg IE8) -->
+    <script src="{{asset('/admin/js/vendor/modernizr-respond.min.js')}}"></script>
+</head>
+<body class="login">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+<!-- Login Container -->
+<div id="login-container">
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Error!</strong> {{$error}}
+            </div>
+        @endforeach
+    @endif
+    <div id="login-logo" style="margin-bottom: 20px">
+        <a href="{{route('main')}}" style="text-decoration: none"><h2 style="color:#002347"><strong>Чудельська ЗОШ І-ІІІ ступенів</strong></h2></a>
+    </div>
+         <form method="POST" action="{{ route('register') }}">
+            {{csrf_field()}}
+            <div class="form-group">
+                <div class="col-md-4 col-xs-12">
+                    <div class="input-group">
+                        <input type="email" id="email" name="email" placeholder="Електронна пошта" class="form-control">
+                        <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="input-group">
+                        <input type="text" id="name" name="name" placeholder="Ім'я" class="form-control">
+                        <span class="input-group-addon"><i class="fa fa-archive"></i></span>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="input-group">
+                        <input type="text" id="surname" name="surname" placeholder="Прізвище" class="form-control">
+                        <span class="input-group-addon"><i class="fa fa-archive"></i></span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+            <div class="form-group">
+                <div class="col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" placeholder="Пароль" class="form-control">
+                        <span class="input-group-addon"><i class="fa fa-asterisk fa-fw"></i></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="input-group">
+                        <input type="password" id="confirm-password" name="password_confirmation" placeholder="Підтвердження пароля" class="form-control">
+                        <span class="input-group-addon"><i class="fa fa-asterisk fa-fw"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix">
+                <div class="btn-group btn-group-sm pull-right">
+                    <button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i>Реєстрація</button>
+                </div>
+            </div>
+        </form>
 </div>
-@endsection
+<!-- END Login Container -->
+
+<!-- Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL) -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>!window.jQuery && document.write(decodeURI('%3Cscript src="js/vendor/jquery-1.11.1.min.js"%3E%3C/script%3E'));</script>
+
+<!-- Bootstrap.js -->
+<script src="{{asset('/admin/js/vendor/bootstrap.min.js')}}"></script>
+
+<!-- Jquery plugins and custom javascript code -->
+<script src="{{asset('/admin/js/plugins.js')}}"></script>
+<script src="{{asset('/admin/js/main.js')}}"></script>
+</body>
+</html>

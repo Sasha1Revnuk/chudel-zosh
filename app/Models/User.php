@@ -7,7 +7,13 @@
 
 namespace App\Models;
 
+
 use Reliese\Database\Eloquent\Model as Eloquent;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+
 
 /**
  * Class User
@@ -28,8 +34,14 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class User extends Eloquent
+class User extends Eloquent implements Authenticatable
 {
+
+    use AuthenticableTrait;
+
+    const ROLE_ADMIN = 1;
+    const ROLE_USER = 2;
+    const ROLE_ROOT = 3;
 	protected $casts = [
 		'role_id' => 'int'
 	];
