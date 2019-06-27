@@ -14,12 +14,11 @@ class IndexController extends Controller
 
     public function __construct()
     {
-        if (Auth::check()) {
-            $this->user = Auth::user();
-        } else {
+        parent::__construct();
+        if ($this->user == null || $this->role->role_id != User::ROLE_ROOT) {
             Redirect::to('/')->send();
         }
-        $this->role = RoleUser::where('user_id', $this->user->id)->first();
+
     }
 
     public function index(Request $request)
@@ -27,7 +26,7 @@ class IndexController extends Controller
         $data = [
             'title' => 'Головна',
             'role' =>$this->role,
-            'userName' => explode(' ', $this->user->full_name)
+            'userName' => $this->userName
         ];
         switch($this->role->role_id) {
             case User::ROLE_ROOT :
