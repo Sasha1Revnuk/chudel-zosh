@@ -11,7 +11,7 @@ class SymbolismController extends Controller
 
     public function index(Request $request)
     {
-        $banner = Menu::where('src', $request->server->get('PATH_INFO'))->first();
+        $banner = Menu::where('src', '/' . $request->route()->uri)->first();
         $data = [
             'settings' => $this->getSettings(),
             'menu' => $this->getMenu(),
@@ -19,7 +19,7 @@ class SymbolismController extends Controller
             'user' => $this->user,
             'role' => $this->role,
             'title' => 'Візитка школи',
-            'banner' => $banner->banner != 0 ? $banner->banner : null,
+            'banner' => $banner->banner != null ? $banner->banner : null,
             'symbolism' => Symbolism::first()
         ];
         return view ('symbolism')->with(['data' => $data]);
