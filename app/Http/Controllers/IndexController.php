@@ -17,8 +17,9 @@ class IndexController extends Controller
             'menu' => $this->getMenu(),
             'userName' =>$this->userName,
             'user' => $this->user,
-            'role' => $this->role
+            'role' => $this->role,
+            'title' => 'Головна'
         ];
-        return view ('layouts.index')->with(['data' => $data]);
+        return view ('index')->with(['data' => $data]);
     }
 }
