@@ -4,7 +4,7 @@
             <div class="col-md-5 order-md-last wrap-about py-5 wrap-about bg-light">
                 <div class="text px-4 ftco-animate">
                     <h2 class="mb-4">Гімн школи</h2>
-                    {!! \App\Models\Symbolism::first()->gimn !!}
+                    {!! \App\Models\Symbolism::first()->gimn ?? '' !!}
                 </div>
             </div>
             <div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
