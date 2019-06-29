@@ -30,4 +30,13 @@ class Symbolism extends Eloquent
 		'gerb',
 		'emblem'
 	];
+
+	public function getGerb()
+    {
+        return asset('storage/symbolism/' . $this->gerb);
+    }
+    public function getEmblem()
+    {
+        return asset('storage/symbolism/' . $this->emblem);
+    }
 }

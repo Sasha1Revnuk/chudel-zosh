@@ -19,4 +19,5 @@ Route::get('/logout', function(){
     \Illuminate\Support\Facades\Auth::logout();
     return redirect()->route('main');
 });
+Route::get('/business-school', 'SymbolismController@index')->name('visitka');
 
