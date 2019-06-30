@@ -20,7 +20,7 @@
                     <div class="block-21 mb-5 d-flex">
                         <a class="blog-img mr-4" style="background-image: url({{$news->getImage()}});"></a>
                         <div class="text">
-                            <h3 class="heading"><a href="{{'/news/' . $news->id}}">Even the all-powerful Pointing has no control about</a></h3>
+                            <h3 class="heading"><a href="{{$news->getUrl()}}">{{$news->name}}</a></h3>
                             <div class="meta">
                                 <div><a><span class="icon-calendar"></span> {{$news->created_at}}</a></div>
                                 <div><a><span class="icon-person"></span> {{$news->user->full_name}}</a></div>

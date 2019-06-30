@@ -25,6 +25,9 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  */
 class Album extends Eloquent
 {
+    const STATUS_UNACTIVE =0;
+    const STATUS_ACTIVE =1;
+
 	protected $casts = [
 		'status' => 'int'
 	];
@@ -39,4 +42,15 @@ class Album extends Eloquent
 	{
 		return $this->hasMany(\App\Models\Photo::class);
 	}
+
+    public function getImage()
+    {
+        return asset('storage/albums/' . $this->id . '/' . $this->image);
+
+    }
+
+    public function getUrl()
+    {
+        return '/albums/' . $this->id;
+    }
 }

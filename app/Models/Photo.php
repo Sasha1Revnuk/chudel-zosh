@@ -37,4 +37,10 @@ class Photo extends Eloquent
 	{
 		return $this->belongsTo(\App\Models\Album::class);
 	}
+
+    public function getImage()
+    {
+        return asset('storage/albums/' . $this->album_id . '/photos/' . $this->name);
+
+    }
 }

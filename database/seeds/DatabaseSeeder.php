@@ -12,8 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('settings')->insert([
-            'name' => 'mainPage_news',
-            'value' => 3,
+            'name' => 'albumsOnPage',
+            'value' => 6,
         ]);
 //        DB::table('settings')->insert([
 //            'name' => 'address',

@@ -20,4 +20,9 @@ Route::get('/logout', function(){
     return redirect()->route('main');
 });
 Route::get('/business-school', 'SymbolismController@index')->name('visitka');
+Route::get('/school-history', 'HistoryController@index')->name('history');
+Route::get('/teachers', 'TeachersController@index')->name('teachers');
+Route::get('/gallery', 'PhotoController@index')->name('gallery');
+Route::get('/albums/{id}', 'PhotoController@albums')->name('albums');
+Route::get('/documents', 'DocumentsController@index')->name('documents');
 

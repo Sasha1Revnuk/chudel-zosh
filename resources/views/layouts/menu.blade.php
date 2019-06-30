@@ -13,8 +13,8 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false" >{{$item['name']}}</a >
                             <ul class="dropdown-menu">
                                 @foreach($item['src'] as  $subitem)
-                                    <li class="nav-item {{request()->path() == $subitem['src'] ? 'active' : ''}}">
-                                        <a class="nav-link" href="{{$subitem['src']}}" style="color: #000; font-size: 15px;">{{$subitem['name']}}</a>
+                                    <li class="nav-item {{'/' . request()->route()->uri == $subitem['src'] ? 'active' : ''}}">
+                                        <a class="nav-link" href="{{$subitem['src']}}" {!! '/' . request()->route()->uri == $subitem['src'] ? 'style="color: #218a39; font-size: 15px;"' : 'style="color: #000; font-size: 15px;"' !!} style="color: #000; font-size: 15px;">{{$subitem['name']}}</a>
                                     </li>
                                 @endforeach
                             </ul>

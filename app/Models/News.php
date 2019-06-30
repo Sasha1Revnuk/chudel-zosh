@@ -97,4 +97,9 @@ class News extends Eloquent
                 return $month;
         }
     }
+
+    public function getUrl()
+    {
+        return '/news/' . $this->id;
+    }
 }
