@@ -12,8 +12,61 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('settings')->insert([
-            'name' => 'albumsOnPage',
+            'name' => 'newsOnPage',
             'value' => 6,
+        ]);
+
+        DB::table('settings')->insert([
+            'name' => 'lastNewsOnView',
+            'value' => 5,
+        ]);
+        DB::table('settings')->insert([
+            'name' => 'annoncOnPage',
+            'value' => 6,
+        ]);
+
+        DB::table('settings')->insert([
+            'name' => 'lastAnnoncesOnView',
+            'value' => 5,
+        ]);
+        DB::table('settings')->insert([
+            'name' => 'methodicalWorkOnPage',
+            'value' => 6,
+        ]);
+
+        DB::table('settings')->insert([
+            'name' => 'lastMethodicalWork',
+            'value' => 5,
+        ]);
+
+        DB::table('settings')->insert([
+            'name' => 'educationalWorkOnPage',
+            'value' => 6,
+        ]);
+
+        DB::table('settings')->insert([
+            'name' => 'lastEducationalWork',
+            'value' => 5,
+        ]);
+
+        DB::table('settings')->insert([
+            'name' => 'znosOnPage',
+            'value' => 6,
+        ]);
+
+        DB::table('settings')->insert([
+            'name' => 'lastZnosWork',
+            'value' => 5,
+        ]);
+
+        DB::table('settings')->insert([
+            'name' => 'pdasOnPage',
+            'value' => 6,
+        ]);
+
+        DB::table('settings')->insert([
+            'name' => 'lastPdasWork',
+            'value' => 5,
         ]);
 //        DB::table('settings')->insert([
 //            'name' => 'address',

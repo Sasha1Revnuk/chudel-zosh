@@ -58,40 +58,40 @@ class News extends Eloquent
     {
         switch ($month){
             case 'January':
-                return 'Cічня';
+                return 'січня';
                 break;
             case 'February':
-                return 'Лютого';
+                return 'лютого';
                 break;
             case 'March':
-                return 'Березня';
+                return 'березня';
                 break;
             case 'April':
-                return 'Квітня';
+                return 'квітня';
                 break;
             case 'May':
-                return 'Травня';
+                return 'травня';
                 break;
             case 'June':
-                return 'Червня';
+                return 'червня';
                 break;
             case 'July':
-                return 'Липня';
+                return 'липня';
                 break;
             case 'August':
-                return 'Серпня';
+                return 'серпня';
                 break;
             case 'September':
-                return 'Вересня';
+                return 'вересня';
                 break;
             case 'October':
-                return 'Жовтня';
+                return 'жовтня';
                 break;
             case 'November':
-                return 'Листопада';
+                return 'листопада';
                 break;
             case 'December':
-                return 'Грудня';
+                return 'грудня';
                 break;
             default:
                 return $month;
@@ -100,6 +100,6 @@ class News extends Eloquent
 
     public function getUrl()
     {
-        return '/news/' . $this->id;
+        return '/news/view/' . $this->url;
     }
 }

@@ -20,10 +20,15 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class MethodicalWork extends Eloquent
+class MethodicalWork extends News
 {
 	protected $fillable = [
 		'name',
 		'text'
 	];
+
+    public function getUrl()
+    {
+        return '/methodical-works/view/' . $this->url;
+    }
 }

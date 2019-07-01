@@ -20,7 +20,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class EducationalWork extends Eloquent
+class EducationalWork extends News
 {
 	protected $table = 'educational_work';
 
@@ -28,4 +28,9 @@ class EducationalWork extends Eloquent
 		'name',
 		'text'
 	];
+
+    public function getUrl()
+    {
+        return '/educational-works/view/' . $this->url;
+    }
 }
