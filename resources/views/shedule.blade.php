@@ -8,10 +8,10 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row">
-                @if($data['history'])
+                @if($data['shedule'])
                     <div class="col-lg-12 ftco-animate">
-                        <h2 class="mb-3" style="text-align: center">{{$data['history']->name}}</h2>
-                        {!! $data['history']->text !!}
+                        <h2 class="mb-3" style="text-align: center">{{$data['shedule']->name}}</h2>
+                        {!! $data['shedule']->text !!}
                     </div> <!-- .col-md-8 -->
                 @endif
                 <!-- END COL -->

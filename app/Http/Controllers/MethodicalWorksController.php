@@ -40,6 +40,9 @@ class MethodicalWorksController extends Controller
     public function view($url)
     {
         $methodicalWork = MethodicalWork::where('url', $url)->first();
+        if (!$methodicalWork) {
+            return redirect('/methodical-works');
+        }
         $data = [
             'settings' => $this->getSettings(),
             'menu' => $this->getMenu(),

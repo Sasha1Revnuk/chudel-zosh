@@ -14,6 +14,9 @@
 Auth::routes();
 
 Route::get('/adm', 'Admin\IndexController@index')->name('main-admin');
+
+
+
 Route::get('/', 'IndexController@index')->name('main');
 Route::get('/logout', function(){
     \Illuminate\Support\Facades\Auth::logout();
@@ -44,4 +47,20 @@ Route::get('/educational-works', 'EducationalWorksController@index')->name('educ
 Route::get('/educational-works/view/{url}', 'EducationalWorksController@view')->name('educational-works-view');
 Route::get('/educational-works/search', 'EducationalWorksController@index')->name('educational-works-search');
 Route::get('/educational-works/search/year/{year}', 'EducationalWorksController@index')->name('educational-works-year-search');
+
+Route::get('/zno', 'ZnoController@index')->name('zno');
+Route::get('/zno/view/{url}', 'ZnoController@view')->name('zno-view');
+Route::get('/zno/search', 'ZnoController@index')->name('zno-search');
+Route::get('/zno/search/year/{year}', 'ZnoController@index')->name('zno-search');
+
+Route::get('/dpa', 'DpaController@index')->name('dpa');
+Route::get('/dpa/view/{url}', 'DpaController@view')->name('dpa-view');
+Route::get('/dpa/search', 'DpaController@index')->name('dpa-search');
+Route::get('/dpa/search/year/{year}', 'DpaController@index')->name('dpa-search');
+
+Route::get('/shedule', 'SheduleController@index')->name('shedule');
+Route::get('/call-shedule', 'CallSheduleController@index')->name('call-shedule');
+Route::get('/rules', 'RulesController@index')->name('rules');
+Route::get('/contacts', 'ContactsController@index')->name('contacts');
+Route::post('/contacts', 'ContactsController@send')->name('contacts-post');
 

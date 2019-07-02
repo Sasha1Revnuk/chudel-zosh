@@ -60,12 +60,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('settings')->insert([
-            'name' => 'pdasOnPage',
+            'name' => 'dpasOnPage',
             'value' => 6,
         ]);
 
         DB::table('settings')->insert([
-            'name' => 'lastPdasWork',
+            'name' => 'lastDpasWork',
             'value' => 5,
         ]);
 //        DB::table('settings')->insert([

@@ -36,6 +36,7 @@ class Announcement extends News
 	protected $fillable = [
 		'name',
 		'text',
+        'url',
 		'status',
 		'user_id'
 	];

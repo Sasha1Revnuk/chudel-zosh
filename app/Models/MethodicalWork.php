@@ -24,6 +24,7 @@ class MethodicalWork extends News
 {
 	protected $fillable = [
 		'name',
+        'url',
 		'text'
 	];
 

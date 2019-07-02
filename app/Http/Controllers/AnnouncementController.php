@@ -41,6 +41,9 @@ class AnnouncementController extends Controller
     public function view($url)
     {
         $announcement = Announcement::with('user')->where('url', $url)->where('status', Announcement::STATUS_ACTIVE)->first();
+        if (!$announcement) {
+            return redirect('/announcements');
+        }
         $data = [
             'settings' => $this->getSettings(),
             'menu' => $this->getMenu(),

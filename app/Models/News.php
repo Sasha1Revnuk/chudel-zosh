@@ -36,6 +36,7 @@ class News extends Eloquent
 
 	protected $fillable = [
 		'name',
+        'url',
 		'image',
 		'text',
 		'status',

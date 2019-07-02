@@ -21,15 +21,23 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class Zno extends Eloquent
+class Zno extends News
 {
+    const STATUS_UNACTIVE =0;
+    const STATUS_ACTIVE =1;
 	protected $casts = [
 		'status' => 'int'
 	];
 
 	protected $fillable = [
 		'name',
+        'url',
 		'text',
 		'status'
 	];
+
+    public function getUrl()
+    {
+        return '/zno/view/' . $this->url;
+    }
 }

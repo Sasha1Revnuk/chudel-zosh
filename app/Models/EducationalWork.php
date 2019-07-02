@@ -26,6 +26,7 @@ class EducationalWork extends News
 
 	protected $fillable = [
 		'name',
+        'url',
 		'text'
 	];
 

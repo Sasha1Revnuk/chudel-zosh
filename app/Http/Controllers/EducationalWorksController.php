@@ -40,6 +40,9 @@ class EducationalWorksController extends Controller
     public function view($url)
     {
         $educationalWork = EducationalWork::where('url', $url)->first();
+        if (!$educationalWork) {
+            return redirect('/educational-works');
+        }
         $data = [
             'settings' => $this->getSettings(),
             'menu' => $this->getMenu(),

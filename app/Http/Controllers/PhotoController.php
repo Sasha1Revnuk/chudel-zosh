@@ -28,6 +28,9 @@ class PhotoController extends Controller
     public function albums($id)
     {
         $album = Album::with('photos')->find($id);
+        if (!$album) {
+            return redirect('/gallery');
+        }
         $data = [
             'settings' => $this->getSettings(),
             'menu' => $this->getMenu(),

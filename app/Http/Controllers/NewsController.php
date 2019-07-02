@@ -41,6 +41,9 @@ class NewsController extends Controller
     public function view($url)
     {
         $news =News::with('user')->where('url', $url)->where('status', News::STATUS_ACTIVE)->first();
+        if (!$news) {
+            return redirect('/news');
+        }
         $data = [
             'settings' => $this->getSettings(),
             'menu' => $this->getMenu(),
