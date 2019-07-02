@@ -19,10 +19,12 @@ class FeedbackMail extends Mailable
 
     public $feedback;
     public $name;
-    public function __construct($feedback, $name)
+    public $email;
+    public function __construct($feedback, $name, $email)
     {
         $this->feedback = $feedback;
         $this->name = $name;
+        $this->email = $email;
     }
 
     /**
@@ -32,6 +34,6 @@ class FeedbackMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.feedback')->with(['text' => $this->feedback, 'name' => $this->name]);
+        return $this->view('emails.feedback')->with(['text' => $this->feedback, 'name' => $this->name, 'email' => $this->email]);
     }
 }

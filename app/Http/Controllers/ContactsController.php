@@ -28,8 +28,9 @@ class ContactsController extends Controller
     {
         $text = $request->text;
         $name = $request->name;
+        $email = $request->email;
         $toEmail = "revo0708@gmail.com";
-        Mail::to($toEmail)->send(new FeedbackMail($text, $name));
+        Mail::to($toEmail)->send(new FeedbackMail($text, $name, $email));
         $request->session()->put('Send', 'Повідомлення відправлено');
         return redirect('/contacts');
     }
