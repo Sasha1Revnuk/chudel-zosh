@@ -7,13 +7,12 @@
 @section('content')
     <section class="ftco-section contact-section">
         <div class="container">
-            <div class="row d-flex mb-5 contact-info">
-                @if (request()->session()->has('Send'))
+            @if (request()->session()->has('Send'))
                 <div class="alert alert-success" role="alert">
                     {{request()->session()->pull('Send')}}
                 </div>
-
-                @endif
+            @endif
+            <div class="row d-flex mb-5 contact-info">
                 <div class="col-md-4 d-flex">
                     <div class="bg-light align-self-stretch box p-4 text-center">
                         <h3 class="mb-4">Адреса</h3>
