@@ -29,7 +29,7 @@ class ContactsController extends Controller
         $text = $request->text;
         $name = $request->name;
         $email = $request->email;
-        $toEmail = "revo0708@gmail.com";
+        $toEmail = "test-rr4lx@mail-tester.com";
         if (Mail::to($toEmail)->send(new FeedbackMail($text, $name, $email))) {
             $request->session()->put('Send', 'Повідомлення відправлено');
         } else {
