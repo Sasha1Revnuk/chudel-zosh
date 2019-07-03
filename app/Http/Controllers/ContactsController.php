@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\FeedbackMail;
@@ -29,7 +30,7 @@ class ContactsController extends Controller
         $text = $request->text;
         $name = $request->name;
         $email = $request->email;
-        $toEmail = "revo0708@gmail.com";
+        $toEmail = Setting::where('name', 'email')->first()->value;
         Mail::send('emails.feedback', ['name' => $name, 'text' => $text, 'email' => $email], function ($m) use ($toEmail, $email, $name) {
             $m->from($email, $name);
             $m->to($toEmail)->subject('Лист від користувача');
