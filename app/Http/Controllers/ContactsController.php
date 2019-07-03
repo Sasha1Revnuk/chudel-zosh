@@ -30,10 +30,12 @@ class ContactsController extends Controller
         $name = $request->name;
         $email = $request->email;
         $toEmail = "revo0708@gmail.com";
-        Mail::send('emails.feedback', ['name' => $name, 'text' => $text, 'email' => $email], function ($m) use ($toEmail) {
+        Mail::send('emails.feedback', ['name' => $name, 'text' => $text, 'email' => $email], function ($m) use ($toEmail, $email, $name) {
+            $m->from($email, $name);
+            $m->subject('Звертання від користувача');
             $m->to($toEmail)->subject('Your Reminder!');
         });
-
+        $request->session()->put('Send', 'Повідомлення відправлено');
         return redirect('/contacts');
     }
 }
