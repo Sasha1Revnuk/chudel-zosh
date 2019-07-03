@@ -30,12 +30,9 @@ class ContactsController extends Controller
         $name = $request->name;
         $email = $request->email;
         $toEmail = "revo0708@gmail.com";
-        if (Mail::to($toEmail)->send(new FeedbackMail($text, $name, $email))) {
-            $request->session()->put('Send', 'Повідомлення відправлено');
-        } else {
-            $request->session()->put('Send', 'Повідомлення не відправлено. Спробуйте пізніше');
-
-        }
+        Mail::send('emails.feedback', ['name' => $name, 'text' => $text, 'email' => $email], function ($m) use ($toEmail) {
+            $m->to($toEmail)->subject('Your Reminder!');
+        });
 
         return redirect('/contacts');
     }
