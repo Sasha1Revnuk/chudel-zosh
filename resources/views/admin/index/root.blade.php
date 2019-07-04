@@ -48,17 +48,24 @@
         </thead>
         <tbody>
 
-        @foreach($data['users'] as $man)
+        @foreach($users as $man)
             <tr>
                 <td class="text-center">{{$man->id}}</td>
                 <td>{{$man->name}}</td>
                 <td class="hidden-xs hidden-sm">{{$man->email}}</td>
-                <td class="hidden-xs hidden-sm">{{$man->role_id}}</td>
+                <td class="hidden-xs hidden-sm">
+                    @foreach($man->roles as $role)
+                        @php
+                        $roleName = $role->name;
+                        $roleId = $role->id;
+                        @endphp
+                    @endforeach
+                    {{$roleName}}
+                    </td>
                 <td class="text-center">
+
                     <div class="btn-group">
-                        @if($man->ready == 0)
-                        <a href="{{'/adm/user/active/' . $man->id}}" data-toggle="tooltip" title="Підтвердити" class="btn btn-xs btn-success"><i class="fa fa-check"></i></a>
-                        @endif
+                        <a href="{{'/adm/user/set-role/' . $man->id}}" data-toggle="tooltip" title="Зробити {{$roleId == \App\Models\User::ROLE_ADMIN ? 'Користувачем' : 'Адміністратором'}}" class="btn btn-xs btn-{{$roleId == \App\Models\User::ROLE_ADMIN ? 'default' : 'success'}}"><i class="fa fa-check"></i></a>
                         <a href="{{'/adm/user/delete/' . $man->id}}" {{\Illuminate\Support\Facades\Auth::user()->id == $man->id ? 'disabled' : ''}} data-toggle="tooltip" title="Видалити" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
                     </div>
                 </td>

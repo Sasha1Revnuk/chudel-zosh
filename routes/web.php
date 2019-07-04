@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/adm', 'Admin\IndexController@index')->name('main-admin');
+
 
 
 
@@ -63,4 +63,25 @@ Route::get('/call-shedule', 'CallSheduleController@index')->name('call-shedule')
 Route::get('/rules', 'RulesController@index')->name('rules');
 Route::get('/contacts', 'ContactsController@index')->name('contacts');
 Route::post('/contacts', 'ContactsController@send')->name('contacts-post');
+
+Route::group(['prefix' => 'adm'], function(){
+    Route::get('/', 'Admin\IndexController@index')->name('main-admin');
+
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('/delete/{id}', 'Admin\IndexController@userDelete')->name('delete-user');
+        Route::get('/set-role/{id}', 'Admin\IndexController@setRole')->name('set-role-user');
+        Route::post('/change-password', 'Admin\IndexController@changePassword')->name('change-password');
+        Route::post('/change-profile', 'Admin\IndexController@changeProfile')->name('change-profile');
+
+    });
+
+    Route::group(['prefix' => 'slider'], function () {
+        Route::get('/', 'Admin\SliderController@index')->name('admin-slider');
+        Route::get('/delete/{id}', 'Admin\SliderController@delete')->name('delete-slider');
+        Route::get('/edit/{id}', 'Admin\SliderController@edit')->name('edit-slider');
+        Route::get('/add', 'Admin\SliderController@add')->name('add-slider');
+        Route::post('/save', 'Admin\SliderController@save')->name('save-slider');
+
+    });
+});
 

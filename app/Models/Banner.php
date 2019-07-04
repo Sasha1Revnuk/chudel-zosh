@@ -29,4 +29,9 @@ class Banner extends Eloquent
     {
         return asset('storage/banners/' . $this->id . '/' . $this->image);
     }
+    public function getThumbnail()
+    {
+        $image = explode('.', $this->image);
+        return asset('storage/banners/' . $this->id . '/' . $this->image . '_thumbnail.' . $image[1]);
+    }
 }

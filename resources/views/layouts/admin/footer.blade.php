@@ -26,7 +26,7 @@
             <div class="modal-body">
 
                     <!-- First Tab -->
-                        <form class="form-horizontal" action="{{'/adm/user/change-password/' . \Illuminate\Support\Facades\Auth::user()->id}}" method="post">
+                        <form class="form-horizontal" action="/adm/user/change-password" method="post">
                             {{csrf_field()}}
                             @if($errors->any())
                                 @foreach($errors->all() as $error)
@@ -94,7 +94,7 @@
             <div class="modal-body">
 
                 <!-- Second Tab -->
-                <form  class="form-horizontal" action="{{'/adm/user/change-profile/' . \Illuminate\Support\Facades\Auth::user()->id}}" method="post" enctype="multipart/form-data">
+                <form  class="form-horizontal" action="/adm/user/change-profile" method="post">
                     {{csrf_field()}}
                     <div class="form-group">
                         <div class="col-md-9">
@@ -103,13 +103,13 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3" for="name">Ім'я</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="example-user-firstname" name="name" class="form-control" value="{{$data['userName'][0]}}">
+                                            <input type="text" id="example-user-firstname" name="name" class="form-control" value="{{$userName[0]}}">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3" for="surname">Прізвище</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="example-user-lastname" name="surname" class="form-control" value="{{$data['userName'][1]}}">
+                                            <input type="text" id="example-user-lastname" name="surname" class="form-control" value="{{$userName[1]}}">
                                         </div>
                                     </div>
                                 </div>

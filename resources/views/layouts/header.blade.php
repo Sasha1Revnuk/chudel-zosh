@@ -47,7 +47,7 @@
                         @if($data['user'] == null)
                             <span class="text"><a href="/login" class="text" >[Авторизація]</a> <a class="text" href="/register">[Реєстрація]</a> </span>
                         @else
-                            <span class="text">{!! $data['role']->role_id == \App\Models\User::ROLE_ROOT ? '<a href="' . '/adm' . '" class="' . 'text' . '">' . implode(' ', $data['userName']) . '</a>' : implode(' ', $data['userName']) . '<a href="' . '/logout' . '" class="' . 'text' . '"> [Вийти]</a>' !!}</span>
+                            <span class="text">{!! $data['role']->role_id == \App\Models\User::ROLE_USER ? implode(' ', $data['userName']) . '<a href="' . '/logout' . '" class="' . 'text' . '"> [Вийти]</a>' : '<a href="' . '/adm' . '" class="' . 'text' . '">' . implode(' ', $data['userName']) . '</a>' !!}</span>
                         @endif
 
                     </div>
