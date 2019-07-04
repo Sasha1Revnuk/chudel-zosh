@@ -15,7 +15,7 @@ class IndexController extends AdminController
 {
     public function index(Request $request)
     {
-
+        $users = null;
         switch($this->role->role_id) {
             case User::ROLE_ROOT :
                 $users = User::query()
