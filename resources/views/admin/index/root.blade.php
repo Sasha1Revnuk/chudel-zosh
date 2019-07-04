@@ -51,7 +51,7 @@
         @foreach($users as $man)
             <tr>
                 <td class="text-center">{{$man->id}}</td>
-                <td>{{$man->name}}</td>
+                <td>{{$man->full_name}}</td>
                 <td class="hidden-xs hidden-sm">{{$man->email}}</td>
                 <td class="hidden-xs hidden-sm">
                     @foreach($man->roles as $role)
