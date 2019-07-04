@@ -101,6 +101,8 @@ class IndexController extends AdminController
         $this->checkRole(User::ROLE_ROOT);
 
         $user = User::find($id);
+        $roleUser = RoleUser::where('user_id', $id)->first();
+        $roleUser->delete();
         $user->delete();
 
         return redirect()->back();
