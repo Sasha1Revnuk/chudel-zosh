@@ -44,6 +44,7 @@
             <div class="form-group">
                 <label class="control-label col-md-2" for="example-file">Задіяне зображення</label>
                 <div class="col-md-3">
+                    
                     <img src="{{$news->getThumbnail()}}" />
                 </div>
             </div>
