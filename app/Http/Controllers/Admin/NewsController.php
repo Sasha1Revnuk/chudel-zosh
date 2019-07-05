@@ -45,10 +45,19 @@ class NewsController extends AdminController
     public function save(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:news',
             'text' => 'required',
             'description' => 'required',
         ]);
+
+        if(!$request->get('id')) {
+            $this->validate($request, [
+                'name' => 'required|unique:news',
+            ]);
+        } else {
+            $this->validate($request, [
+                'name' => 'required|',
+            ]);
+        }
         DB::transaction(function() use ($request) {
             $news = $request->get('id') ? News::where('status', News::STATUS_ACTIVE)->find($request->get('id')) : new News();
             $news->name = $request->get('name');
