@@ -89,5 +89,14 @@ Route::group(['prefix' => 'adm'], function(){
         Route::post('/save', 'Admin\SymbolismController@save')->name('save-symbolism');
 
     });
+
+    Route::group(['prefix' => 'advantages'], function () {
+        Route::get('/', 'Admin\AdvantagesController@index')->name('admin-advantages');
+        Route::get('/delete/{id}', 'Admin\AdvantagesController@delete')->name('delete-advantages');
+        Route::get('/edit/{id}', 'Admin\AdvantagesController@edit')->name('edit-advantages');
+        Route::get('/add', 'Admin\AdvantagesController@add')->name('add-advantages');
+        Route::post('/save', 'Admin\AdvantagesController@save')->name('save-advantages');
+
+    });
 });
 
