@@ -66,8 +66,11 @@ class NewsController extends AdminController
             $news->description = $request->get('description');
             $news->user_id = $this->user->id;
             $news->save();
-            $news->image = $this->saveImage($request, $news);
-            $news->save();
+            if ($request->file('image')) {
+                $news->image = $this->saveImage($request, $news);
+                $news->save();
+            }
+
 
         });
 
