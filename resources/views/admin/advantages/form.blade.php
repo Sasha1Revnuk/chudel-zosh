@@ -17,7 +17,7 @@
         @endif
         <div class="form-box-content">
             <div class="form-group">
-                <label class="control-label col-md-2" for="example-input-normal">Назва уроку</label>
+                <label class="control-label col-md-2" for="example-input-normal">Назва</label>
                 <div class="col-md-3">
                     <input type="text" id="example-input-normal" name="name" class="form-control" required value="{{$advantage ? $advantage->name : old('name')}}">
                 </div>

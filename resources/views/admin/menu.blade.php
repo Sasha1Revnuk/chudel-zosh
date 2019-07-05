@@ -4,5 +4,6 @@
         <li><a href="{{route('admin-slider')}}" class="{{Route::currentRouteName() == 'admin-slider' ? 'active' : ''}}"><i class="fa fa-sliders"></i>Слайдер на головній</a></li>
         <li><a href="{{route('admin-advantages')}}" class="{{Route::currentRouteName() == 'admin-slider' ? 'active' : ''}}"><i class="fa fa-leaf"></i>Переваги</a></li>
         <li><a href="{{route('admin-symbolism')}}" class="{{Route::currentRouteName() == 'admin-symbolism' ? 'active' : ''}}"><i class="fa fa-empire"></i>Символіка</a></li>
+        <li><a href="{{route('admin-news')}}" class="{{Route::currentRouteName() == 'admin-news' ? 'active' : ''}}"><i class="fa fa-newspaper-o"></i>Новини</a></li>
     </ul>
 </nav>

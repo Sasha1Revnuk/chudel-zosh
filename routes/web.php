@@ -96,7 +96,15 @@ Route::group(['prefix' => 'adm'], function(){
         Route::get('/edit/{id}', 'Admin\AdvantagesController@edit')->name('edit-advantages');
         Route::get('/add', 'Admin\AdvantagesController@add')->name('add-advantages');
         Route::post('/save', 'Admin\AdvantagesController@save')->name('save-advantages');
+    });
 
+    Route::group(['prefix' => 'news'], function () {
+        Route::get('/', 'Admin\NewsController@index')->name('admin-news');
+        Route::get('/delete/{id}', 'Admin\NewsController@delete')->name('delete-news');
+        Route::get('/edit/{id}', 'Admin\NewsController@edit')->name('edit-news');
+        Route::get('/access/{id}', 'Admin\NewsController@access')->name('access-news');
+        Route::get('/add', 'Admin\NewsController@add')->name('add-news');
+        Route::post('/save', 'Admin\NewsController@save')->name('save-news');
     });
 });
 
