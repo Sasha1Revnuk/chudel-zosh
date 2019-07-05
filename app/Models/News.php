@@ -107,7 +107,7 @@ class News extends Eloquent
     public function getThumbnail()
     {
         $image = explode('.', $this->image);
-        if(isset($image[1]) && $image[1] != 0) {
+        if(isset($image[1])) {
             return asset('storage/news/' . $this->id . '/' . $this->image . '_thumbnail.' . $image[1]);
         }
     }
