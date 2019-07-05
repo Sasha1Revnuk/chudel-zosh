@@ -42,15 +42,12 @@ class Symbolism extends Eloquent
     public function getThumbnailEmblem()
     {
         $image = explode('.', $this->emblem);
-        if($image) {
-            return asset('storage/symbolism/' . $this->emblem . '_thumbnail.' . $image[1]);
-        }
+        return asset('storage/symbolism/' . $this->emblem . '_thumbnail.' . $image[1]);
     }
+
     public function getThumbnailGerb()
     {
         $image = explode('.', $this->gerb);
-        if($image) {
-            return asset('storage/symbolism/' . $this->gerb . '_thumbnail.' . $image[1]);
-        }
+        return asset('storage/symbolism/' . $this->gerb . '_thumbnail.' . $image[1]);
     }
 }
