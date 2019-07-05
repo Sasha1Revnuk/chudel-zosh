@@ -103,4 +103,12 @@ class News extends Eloquent
     {
         return '/news/view/' . $this->url;
     }
+
+    public function getThumbnail()
+    {
+        $image = explode('.', $this->image);
+        if(isset($image[1]) && $image[1] != 0) {
+            return asset('storage/news/' . $this->id . '/' . $this->image . '_thumbnail.' . $image[1]);
+        }
+    }
 }
