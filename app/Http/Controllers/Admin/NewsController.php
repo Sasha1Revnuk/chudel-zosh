@@ -45,7 +45,7 @@ class NewsController extends AdminController
     public function save(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'name' => 'required|unique:news',
             'text' => 'required',
             'description' => 'required',
         ]);
