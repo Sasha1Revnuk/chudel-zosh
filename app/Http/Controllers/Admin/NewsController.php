@@ -74,7 +74,7 @@ class NewsController extends AdminController
 
         });
 
-        return redirect('/adm/news');
+        return redirect()->back();
     }
 
     public function delete($id)
