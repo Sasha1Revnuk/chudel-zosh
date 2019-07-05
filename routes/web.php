@@ -83,5 +83,11 @@ Route::group(['prefix' => 'adm'], function(){
         Route::post('/save', 'Admin\SliderController@save')->name('save-slider');
 
     });
+
+    Route::group(['prefix' => 'symbolism'], function () {
+        Route::get('/', 'Admin\SymbolismController@index')->name('admin-symbolism');
+        Route::post('/save', 'Admin\SymbolismController@save')->name('save-symbolism');
+
+    });
 });
 
