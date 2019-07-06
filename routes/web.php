@@ -106,5 +106,11 @@ Route::group(['prefix' => 'adm'], function(){
         Route::get('/add', 'Admin\NewsController@add')->name('add-news');
         Route::post('/save', 'Admin\NewsController@save')->name('save-news');
     });
+
+    Route::group(['prefix' => 'history'], function () {
+        Route::get('/', 'Admin\HistoryController@index')->name('admin-history');
+        Route::post('/save', 'Admin\HistoryController@save')->name('save-history');
+
+    });
 });
 
