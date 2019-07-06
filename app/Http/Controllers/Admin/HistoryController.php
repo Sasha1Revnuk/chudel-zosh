@@ -33,6 +33,6 @@ class HistoryController extends AdminController
 
         });
 
-        return redirect('/adm/symbolism');
+        return redirect()->back();
     }
 }
