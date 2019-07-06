@@ -107,7 +107,7 @@
     <!-- Inner Container -->
     <div id="inner-container">
         <!-- Sidebar -->
-        <aside id="page-sidebar" class="collapse navbar-collapse navbar-main-collapse">
+        <aside id="page-sidebar" class="collapse navbar-collapse navbar-main-collapse" >
             <!-- Sidebar search -->
             <!-- END Sidebar search -->
 
