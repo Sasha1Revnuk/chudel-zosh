@@ -32,11 +32,9 @@ class SymbolismController extends AdminController
             $symbolism->save();
             if($request->file('gerb')){
                 $symbolism->gerb = $this->saveSymbolic($request, $symbolism, 'gerb');
+                $symbolism->save();
             }
-            if($request->file('emblem')){
-                $symbolism->emblem = $this->saveSymbolic($request, $symbolism, 'emblem');
-            }
-            $symbolism->save();
+
 
         });
 

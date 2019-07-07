@@ -32,18 +32,6 @@
                     <img src="{{$symbolism->getThumbnailGerb()}}" />
                 </div>
             </div>
-            <div class="form-group">
-                <label class="control-label col-md-2" for="example-file">Емблема</label>
-                <div class="col-md-3">
-                    <input type="file" id="example-file" name="emblem" class="form-control">
-                </div><br />
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-2" for="example-file">Задіяна емблема</label>
-                <div class="col-md-3">
-                    <img src="{{$symbolism->getThumbnailEmblem()}}"  />
-                </div>
-            </div>
 
             <div class="form-group form-actions">
                 <div class="col-md-10 col-md-offset-2">

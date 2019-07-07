@@ -14,7 +14,6 @@ class IndexController extends Controller
     {
         $data = [
             'settings' => $this->getSettings(),
-            'menu' => $this->getMenu(),
             'userName' =>$this->userName,
             'user' => $this->user,
             'role' => $this->role,

@@ -37,34 +37,4 @@ class Controller extends BaseController
         ];
     }
 
-    protected function getMenu()
-    {
-        $menu = [];
-        $menuCollection = Menu::where('parent_id', 0)->get();
-
-        foreach ($menuCollection as $item) {
-            if($item->src != 'parent') {
-                $menu[] = [
-                    'name' => $item->name,
-                    'src' => $item->src
-                ];
-            } else {
-                $childCollection = Menu::where('parent_id', $item->id)->get();
-                $parentArray = [];
-                foreach ($childCollection as $child) {
-                    $parentArray[] = [
-                        'name' => $child->name,
-                        'src' => $child->src
-                    ];
-                }
-                $menu[] = [
-                    'name' => $item->name,
-                    'src' => $parentArray
-                ];
-
-            }
-        }
-
-        return $menu;
-    }
 }
