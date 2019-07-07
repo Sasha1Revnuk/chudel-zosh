@@ -24,7 +24,6 @@ class NewsController extends Controller
         }
 
         $news = $news->orderBy('created_at', 'desc')->paginate(Setting::where('name', 'newsOnPage')->first()->value);
-        $banner = Menu::where('src', 'LIKE', '/news' . '%')->first();
         $data = [
             'settings' => $this->getSettings(),
             'menu' => $this->getMenu(),
@@ -32,7 +31,7 @@ class NewsController extends Controller
             'user' => $this->user,
             'role' => $this->role,
             'title' => 'Новини',
-            'banner' => $banner->banner != null ? $banner->banner : null,
+            'banner' => '#',
             'news' => $news,
         ];
         return view ('news')->with(['data' => $data]);

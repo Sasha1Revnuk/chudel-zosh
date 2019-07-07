@@ -25,10 +25,12 @@ class HistoryController extends AdminController
             'name' => 'required',
             'text' => 'required',
         ]);
-        DB::transaction(function() use ($request) {
+        $text = str_replace('https://drive.google.com/file/d/', 'https://docs.google.com/uc?id=', $request->get('text'));
+        $text = str_replace('/view?usp=sharing', ' ', $text);
+        DB::transaction(function() use ($request, $text) {
             $history = History::find($request->get('id'));
             $history->name = $request->get('name');
-            $history->text = $request->get('text');
+            $history->text = $text;
             $history->save();
 
         });

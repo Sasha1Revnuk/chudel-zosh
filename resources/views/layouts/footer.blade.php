@@ -34,16 +34,38 @@
                 <div class="ftco-footer-widget mb-5 ml-md-4">
                     <h2 class="ftco-heading-2">Меню</h2>
                     <ul class="list-unstyled">
-                        @foreach($data['menu'] as $item)
-                            @if(is_array($item['src']))
-                                <li><a style="color: rgba(255, 255, 255, 0.7)"><span class="ion-ios-arrow-round-forward mr-2"></span>{{$item['name']}}</a></li>
-                                @foreach($item['src'] as  $subitem)
-                                    <li style="margin-left: 15px"><a href="{{$subitem['src']}}"><span class="ion-ios-arrow-round-forward mr-2"></span>{{$subitem['name']}}</a></li>
-                                @endforeach
-                            @else
-                                <li><a href="{{$item['src']}}"><span class="ion-ios-arrow-round-forward mr-2"></span>{{$item['name']}}</a></li>
-                            @endif
-                        @endforeach
+                        <li><a href="/"><span class="ion-ios-arrow-round-forward mr-2"></span>Головна</a></li>
+                        <li><a style="color: rgba(255, 255, 255, 0.7)"><span class="ion-ios-arrow-round-forward mr-2"></span>Управлінська діяльність</a></li>
+                            <li style="margin-left: 15px"><a href="/attestation"><span class="ion-ios-arrow-round-forward mr-2"></span>Атестація</a></li>
+                            <li style="margin-left: 15px"><a href="/library"><span class="ion-ios-arrow-round-forward mr-2"></span>Шкілька бібліотека</a></li>
+                            <li style="margin-left: 15px"><a href="/psychological-service"><span class="ion-ios-arrow-round-forward mr-2"></span>Психологічна служба</a></li>
+                            <li style="margin-left: 15px"><a href="/civil-save"><span class="ion-ios-arrow-round-forward mr-2"></span>Цивільний захист</a></li>
+                            <li style="margin-left: 15px"><a href="/normy"><span class="ion-ios-arrow-round-forward mr-2"></span>Документи</a></li>
+                        <li><a style="color: rgba(255, 255, 255, 0.7)"><span class="ion-ios-arrow-round-forward mr-2"></span>Освітній процес</a></li>
+                            <li style="margin-left: 15px">
+                                <a  href="/methodical-work" ><span class="ion-ios-arrow-round-forward mr-2"></span>Методична робота</a>
+                            </li>
+                            <li style="margin-left: 15px">
+                                <a  href="/methodical-work" ><span class="ion-ios-arrow-round-forward mr-2"></span>Виховна робота</a>
+                            </li>
+                            <li style="margin-left: 15px">
+                                <a href="/methodical-work"> <span class="ion-ios-arrow-round-forward mr-2"></span>Навчальна робота</a>
+                            </li>
+                            <li style="margin-left: 15px">
+                                <a href="/methodical-work" ><span class="ion-ios-arrow-round-forward mr-2"></span>Інклюзивне навчнання</a>
+                            </li>
+                            <li style="margin-left: 15px">
+                                <a href="/methodical-work"> <span class="ion-ios-arrow-round-forward mr-2"></span>Профільне навчання та профорієнтація</a>
+                            </li>
+                            <li style="margin-left: 15px"><a href="/nush"><span class="ion-ios-arrow-round-forward mr-2"></span>НУШ</a></li>
+                            <li style="margin-left: 15px"   ><a href="/zno-dpa"><span class="ion-ios-arrow-round-forward mr-2"></span>ДПА і ЗНО</a></li>
+
+                        <li><a href="/public-information" ><span class="ion-ios-arrow-round-forward mr-2"></span>Публічна інформація</a></li>
+                        <li><a href="/news"><span class="ion-ios-arrow-round-forward mr-2"></span>Новини</a></li>
+                        <li><a href="/for-pupils"><span class="ion-ios-arrow-round-forward mr-2"></span>Учням</a></li>
+                        <li><a href="/for-parants"><span class="ion-ios-arrow-round-forward mr-2"></span>Батькам</a></li>
+                        <li><a href="/our-pride"><span class="ion-ios-arrow-round-forward mr-2"></span>Наша гордість</a></li>
+                        <li><a href="/archive"><span class="ion-ios-arrow-round-forward mr-2"></span>Архів</a></li>
                     </ul>
                 </div>
             </div>
