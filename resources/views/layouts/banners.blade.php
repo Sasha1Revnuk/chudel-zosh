@@ -1,9 +1,9 @@
-<section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('storage/menus/' . $data['banner'])}});">
-    <div class="overlay"></div>
+<section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('images/fon.jpg')}})">
+    <div class="overlay" ></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
-            <div class="col-md-9 ftco-animate text-center">
-                <h1 class="mb-2 bread">{{$data['title']}}</h1>
+            <div class="col-md-9 ftco-animate text-center" style="margin-top: -10%">
+                <h1 class="mb-2 bread" style="color: #e2a411">{{$data['title']}}</h1>
             </div>
         </div>
     </div>

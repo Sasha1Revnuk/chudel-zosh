@@ -22,13 +22,28 @@ Route::get('/logout', function(){
     \Illuminate\Support\Facades\Auth::logout();
     return redirect()->route('main');
 });
-
+Route::get('/atestation', 'AtestationController@index')->name('attestation');
+Route::get('/library', 'LibraryController@index')->name('library');
+Route::get('/psychological-service', 'PsychologicalServiceController@index')->name('psychological-service');
+Route::get('/civil-save', 'CivilSaveController@index')->name('civil-save');
+Route::get('/normy', 'NormyController@index')->name('normy');
+Route::get('/methodical-work', 'MethodicalWorkController@index')->name('methodical-work');
+Route::get('/mo-teachers', 'MoTeachersController@index')->name('mo-teachers');
+Route::get('/educational-activities', 'EducationalActivitiesController@index')->name('educational-activities');
+Route::get('/educational-work', 'EducationalWorkController@index')->name('educational-work');
+Route::get('/inclusive-education', 'InclusiveEducationController@index')->name('inclusive-education');
+Route::get('/professional-training-and-career-guidance', 'ProfessionalTrainingAndCareerGuidanceController@index')->name('professional-training-and-career-guidance');
+Route::get('/nush', 'NushController@index')->name('nush');
+Route::get('/zno-dpa', 'ZnoDpaController@index')->name('zno-dpa');
+Route::get('/public-information', 'PublicInformationController@index')->name('public-information');
+Route::get('/for-pupils', 'ForPupilsController@index')->name('for-pupils');
+Route::get('/for-parents', 'ForParants@index')->name('for-parents');
+Route::get('/our-pride', 'OurPride@index')->name('our-pride');
+Route::get('/archive', 'ArchiveController@index')->name('archive');
 
 Route::get('/news', 'NewsController@index')->name('news');
 Route::get('/news/view/{url}', 'NewsController@view')->name('news-view');
 Route::get('/news/search', 'NewsController@index')->name('news-search');
-Route::get('/news/search/year/{year}', 'NewsController@index')->name('news-year-search');
-
 
 Route::group(['prefix' => 'adm'], function(){
     Route::get('/', 'Admin\IndexController@index')->name('main-admin');
