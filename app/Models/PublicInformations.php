@@ -20,7 +20,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class PublicInformation extends Eloquent
+class PublicInformations extends Eloquent
 {
 	protected $fillable = [
 		'name',

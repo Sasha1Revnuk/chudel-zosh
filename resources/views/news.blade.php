@@ -1,9 +1,7 @@
 @extends('layouts.page')
-@if($data['banner'])
-    @section('banner')
-        @include('layouts.banners')
-    @endsection
-@endif
+@section('banner')
+    @include('layouts.banners')
+@endsection
 @section('content')
     @if($data['news'])
         <section class="ftco-section bg-light" >
@@ -48,7 +46,23 @@
                         </div>
                     </div>
                 </div>
+                @if(count($data['archive']) > 0)
+                    <div class="col-lg-12 sidebar ftco-animate"">
+                        <div class="sidebar-box ftco-animate">
+                            <h3>Пошук за датою</h3>
+                            <ul class="categories">
+                                @foreach($data['archive'] as $year => $monthArray)
+                                    <li style=" border-bottom: #218a38 dashed"><a href="{{'/news/search?year=' . $year}}">{{$year . ' рік'}}</a></li>
+                                    @foreach($monthArray as $month => $collections)
+                                        <li style="margin-left: 20px;"><a href="{{'/news/search?year=' . $year . '&month=' . $month}}">{{\App\Http\Controllers\Controller::getStockMonth($month)}}<span>{{count($collections)}}</span></a></li>
+                                    @endforeach
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                @endif
             </div>
+
         </section>
     @endif
 @endsection

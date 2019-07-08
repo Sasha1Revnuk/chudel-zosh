@@ -3,24 +3,33 @@
         <div class="row">
             <div class="col-md-5 order-md-last wrap-about py-5 wrap-about bg-light">
                 <div class="text px-4 ftco-animate">
-                    <h2 class="mb-4">Гімн школи</h2>
+                    <h2 class="mb-4" style="text-align:center">Герб школи</h2>
+                    <p style="text-align:center"><img src="{{$data['symbolism']->getGerb()}}" /></p>
+                    <h2 class="mb-4" style="text-align:center">Гімн школи</h2>
                     {!! \App\Models\Symbolism::first()->gimn ?? '' !!}
                 </div>
             </div>
             <div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
-                <h2 class="mb-4">Наші переваги</h2>
+                <h2 class="mb-4">Наша історія</h2>
                 <div class="row mt-5">
-                        <div class="col-lg-6">
-                            <div class="services-2 d-flex">
-                                <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-security"></span></div>
-                                <div class="text">
-                                    <h3>Герб</h3>
-                                    <p>вапвапва</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-lg-12 ftco-animate">
+                        <h2 class="mb-3" style="text-align: center"></h2>
+                        {!! $data['mainText']->history !!}
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            @if($data['mainText'])
+                <div class="col-lg-12 ftco-animate">
+                    {!! $data['mainText']->teachers !!}
+                </div> <!-- .col-md-8 -->
+            @endif
+        <!-- END COL -->
         </div>
     </div>
 </section>

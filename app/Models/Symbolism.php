@@ -28,4 +28,9 @@ class Symbolism extends Eloquent
 		'gimn',
 		'gerb'
 	];
+
+    public function getGerb()
+    {
+        return asset('storage/symbolism/' . $this->gerb);
+    }
 }

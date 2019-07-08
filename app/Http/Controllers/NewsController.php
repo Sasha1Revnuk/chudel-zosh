@@ -10,13 +10,15 @@ use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
-    public function index(Request $request, $year=null)
+    public function index(Request $request)
     {
         $news = News::query()
         ->where('status', News::STATUS_ACTIVE);
 
-        if ($year) {
-          $news->where('created_at', 'LIKE', '%' . $year . '%');
+        if ($request->get('year') && $request->get('month')) {
+          $news->where('created_at', 'LIKE', '%' . $request->get('year') . '-' . $request->get('month') . '%');
+        } else if ($request->get('year')) {
+          $news->where('created_at', 'LIKE', '%' . $request->get('year') . '%');
         }
 
         if ($request->get('name')) {
@@ -24,15 +26,19 @@ class NewsController extends Controller
         }
 
         $news = $news->orderBy('created_at', 'desc')->paginate(Setting::where('name', 'newsOnPage')->first()->value);
+        $archive = [];
+        $list = News::where('status', News::STATUS_ACTIVE)->get();
+        foreach ($list as $item) {
+            $archive[$item->created_at->format('Y')][$item->created_at->format('m')][] = $item;
+        }
         $data = [
             'settings' => $this->getSettings(),
-            'menu' => $this->getMenu(),
             'userName' =>$this->userName,
             'user' => $this->user,
             'role' => $this->role,
             'title' => 'Новини',
-            'banner' => '#',
             'news' => $news,
+            'archive' => $archive
         ];
         return view ('news')->with(['data' => $data]);
     }
@@ -43,21 +49,23 @@ class NewsController extends Controller
         if (!$news) {
             return redirect('/news');
         }
+        $archive = [];
+        $list = News::where('status', News::STATUS_ACTIVE)->get();
+        foreach ($list as $item) {
+            $archive[$item->created_at->format('Y')][$item->created_at->format('m')][] = $item;
+        }
         $data = [
             'settings' => $this->getSettings(),
-            'menu' => $this->getMenu(),
             'userName' =>$this->userName,
             'user' => $this->user,
             'role' => $this->role,
             'title' => $news->name,
             'news' => $news,
             'lastNews' => News::with('user')->where('status', News::STATUS_ACTIVE)->orderBy('created_at', 'desc')->limit(Setting::where('name', 'lastNewsOnView')->first()->value)->get(),
-            'archive' => News::query()
-                ->select(DB::raw('count(id) as `data`'), DB::raw('YEAR(created_at) year'))
-                ->groupby('year')
-                ->orderBy('year', 'desc')
-                ->get()
-        ];
+            'archive' => $archive
+       ];
+
+
         return view ('news.view')->with(['data' => $data]);
     }
 

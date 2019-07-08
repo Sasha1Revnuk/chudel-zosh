@@ -50,10 +50,13 @@
                         @endif
                         @if(count($data['archive']) > 0)
                             <div class="sidebar-box ftco-animate">
-                                <h3>Архів</h3>
+                                <h3>Пошук за датою</h3>
                                 <ul class="categories">
-                                    @foreach($data['archive'] as $archive)
-                                        <li><a href="{{'/news/search/year/' . $archive->year}}">{{$archive->year . ' рік'}}<span>{{$archive->data}}</span></a></li>
+                                    @foreach($data['archive'] as $year => $monthArray)
+                                        <li style=" border-bottom: #218a38 dashed"><a href="{{'/news/search?year=' . $year}}">{{$year . ' рік'}}</a></li>
+                                        @foreach($monthArray as $month => $collections)
+                                            <li style="margin-left: 20px;"><a href="{{'/news/search?year=' . $year . '&month=' . $month}}">{{\App\Http\Controllers\Controller::getStockMonth($month)}}<span>{{count($collections)}}</span></a></li>
+                                        @endforeach
                                     @endforeach
                                 </ul>
                             </div>

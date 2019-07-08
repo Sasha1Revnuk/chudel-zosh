@@ -99,6 +99,8 @@ class News extends Eloquent
         }
     }
 
+
+
     public function getUrl()
     {
         return '/news/view/' . $this->url;
