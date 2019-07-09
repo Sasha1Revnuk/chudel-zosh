@@ -1,4 +1,7 @@
 @include('layouts.admin.header')
-@yield('content')
+<div id="page-content">
+    @yield('hint')
+    @yield('content')
+</div>
 @include('layouts.admin.footer')
 

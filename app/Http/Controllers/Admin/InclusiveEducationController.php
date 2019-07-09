@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\History;
+use App\Models\InclusiveWork;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
-class HistoryController extends AdminController
+class InclusiveEducationController extends AdminController
 {
     public function index()
     {
-        return view('admin.history.index')->with([
-            'title' => 'Історія школи',
+        return view('admin.inclusive.index')->with([
+            'title' => 'Інклюзивне навчання',
             'userName' => $this->userName,
-            'history' => History::first()
+            'inclusive' => InclusiveWork::first()
         ]);
 
     }
@@ -28,10 +28,10 @@ class HistoryController extends AdminController
         $text = str_replace('https://drive.google.com/file/d/', 'https://docs.google.com/uc?id=', $request->get('text'));
         $text = str_replace('/view?usp=sharing', ' ', $text);
         DB::transaction(function() use ($request, $text) {
-            $history = History::find($request->get('id'));
-            $history->name = $request->get('name');
-            $history->text = $text;
-            $history->save();
+            $inclusive = InclusiveWork::find($request->get('id'));
+            $inclusive->name = $request->get('name');
+            $inclusive->text = $text;
+            $inclusive->save();
 
         });
 

@@ -1,6 +1,8 @@
 @extends('layouts.admin.pages')
 @section('content')
-<div id="page-content">
+@section('hint')
+    @include('layouts.admin.hints.text')
+@endsection
     @if($errors->any())
         @foreach($errors->all() as $error)
             <div class="alert alert-danger">
@@ -9,22 +11,22 @@
             </div>
         @endforeach
     @endif
-    @if($history)
-        <form action="{{'/adm/history/save'}}" method="post" class="form-horizontal form-box" enctype="multipart/form-data">
+    @if($inclusive)
+        <form action="{{'/adm/inclusive-education/save'}}" method="post" class="form-horizontal form-box" enctype="multipart/form-data">
             {{csrf_field()}}
             <h4 class="form-box-header">{{$title}}</h4>
-            <input type="hidden" name="id" value="{{$history->id}}">
+            <input type="hidden" name="id" value="{{$inclusive->id}}">
             <div class="form-box-content">
                 <div class="form-group">
                     <label class="control-label col-md-2" for="example-input-normal">Назва</label>
                     <div class="col-md-3">
-                        <input type="text" id="example-input-normal" name="name" class="form-control" required value="{{$history ? $history->name : old('name')}}">
+                        <input type="text" id="example-input-normal" name="name" class="form-control" required value="{{$inclusive ? $inclusive->name : old('name')}}">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="example-textarea-ckeditor">Історія</label>
+                    <label class="control-label col-md-2" for="example-textarea-ckeditor">Текст</label>
                     <div class="col-md-10">
-                        <textarea id="example-textarea-ckeditor" name="text" class="ckeditor">{{$history->text ? $history->text : old('text')}}</textarea>
+                        <textarea id="example-textarea-ckeditor" name="text" class="ckeditor">{{$inclusive->text ? $inclusive->text : old('text')}}</textarea>
                     </div>
                 </div>
                 <div class="form-group form-actions">
@@ -35,5 +37,4 @@
             </div>
         </form>
     @endif
-</div>
 @endsection

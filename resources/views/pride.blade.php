@@ -8,15 +8,15 @@
         <div class="container">
             <div class="row">
                     @foreach($data['pride'] as $pride)
-                        <div class="col-md-6 col-lg-3 ftco-animate">
+                        <div class="col-md-6 col-lg-4 ftco-animate">
                             <div class="staff">
                                 @if($pride->image)
                                     <div class="img-wrap d-flex align-items-stretch">
                                         <div class="img align-self-stretch" style="background-image: url({{$pride->getImage()}});"></div>
                                     </div>
                                 @endif
-                                <div class="text pt-3 text-center">
-                                    <h3>{{$pride->name}}</h3>
+                                <div class="text pt-3 ">
+                                    <h3 class="text-center">{{$pride->name}}</h3>
                                     <div class="faded">
                                         <p>{{$pride->text}}</p>
                                     </div>

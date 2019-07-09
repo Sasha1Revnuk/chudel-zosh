@@ -58,11 +58,14 @@ class NewsController extends AdminController
                 'name' => 'required|',
             ]);
         }
-        DB::transaction(function() use ($request) {
+
+        $text = str_replace('https://drive.google.com/file/d/', 'https://docs.google.com/uc?id=', $request->get('text'));
+        $text = str_replace('/view?usp=sharing', ' ', $text);
+        DB::transaction(function() use ($request, $text) {
             $news = $request->get('id') ? News::where('status', News::STATUS_ACTIVE)->find($request->get('id')) : new News();
             $news->name = $request->get('name');
             $news->url = Utils::transliterate($request->get('name'));
-            $news->text = $request->get('text');
+            $news->text = $text;
             $news->description = $request->get('description');
             $news->user_id = $this->user->id;
             $news->save();

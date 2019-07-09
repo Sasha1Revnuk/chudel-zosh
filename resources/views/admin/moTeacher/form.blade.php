@@ -11,49 +11,48 @@
             </div>
         @endforeach
     @endif
-    <form action="{{'/adm/news/save'}}" method="post" class="form-horizontal form-box" enctype="multipart/form-data">
+    <form action="{{'/adm/mo-teachers/save'}}" method="post" class="form-horizontal form-box" enctype="multipart/form-data">
         {{csrf_field()}}
         <h4 class="form-box-header">{{$title}}</h4>
-        @if($news->id)
-            <input type="hidden" name="id" value="{{$news->id}}">
+        @if($moTeacher->id)
+            <input type="hidden" name="id" value="{{$moTeacher->id}}">
         @endif
         <div class="form-box-content">
             <div class="form-group">
                 <label class="control-label col-md-2" for="example-input-normal">Назва</label>
                 <div class="col-md-3">
-                    <input type="text" id="example-input-normal" name="name" class="form-control" required value="{{$news ? $news->name : old('name')}}">
+                    <input type="text" id="example-input-normal" name="name" class="form-control" required value="{{$moTeacher ? $moTeacher->name : old('name')}}">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-2" for="example-textarea">Короткий опис</label>
+                <label class="control-label col-md-2" for="example-input-normal">Посилання</label>
                 <div class="col-md-3">
-                    <textarea id="example-textarea" name="description" class="form-control" required rows="7" cols="30">{{$news ? $news->description : old('description')}}</textarea>
+                    <input type="text" id="example-input-normal" name="src" class="form-control" required value="{{$moTeacher ? $moTeacher->src : old('src')}}">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-2" for="example-textarea-ckeditor">Текст</label>
-                <div class="col-md-10">
-                    <textarea id="example-textarea-ckeditor" name="text" required class="ckeditor">{{$news ? $news->text : old('text')}}</textarea>
+                <label class="control-label col-md-2" for="example-textarea">Підпис</label>
+                <div class="col-md-8">
+                    <textarea id="example-textarea" name="description" class="form-control" required rows="7" cols="300">{{$moTeacher ? $moTeacher->description : old('description')}}</textarea>
                 </div>
-            </div><div class="form-group">
+            </div>
+            <div class="form-group">
                 <label class="control-label col-md-2" for="example-file">Зображення</label>
                 <div class="col-md-3">
                     <input type="file" id="example-file" name="image" class="form-control">
                 </div>
-                <span class="help-block"><code>Ширина зображення повинна бути не меньша ніж <b style="font-size: 15px">800 px.</b> для якісного відображення</code></span>
-
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2" for="example-file">Задіяне зображення</label>
                 <div class="col-md-3">
                     
-                    <img src="{{$news->getThumbnail()}}" />
+                    <img src="{{$moTeacher->getThumbnail()}}" />
                 </div>
             </div>
 
             <div class="form-group form-actions">
                 <div class="col-md-10 col-md-offset-2">
-                    <a href="{{'/adm/news/'}}" class="btn btn-info"><i class="fa fa-backward"></i> Повернутись назад</a>
+                    <a href="{{'/adm/mo-teachers/'}}" class="btn btn-info"><i class="fa fa-backward"></i> Повернутись назад</a>
                     <button class="btn btn-success"><i class="fa fa-floppy-o"></i> Зберегти</button>
                 </div>
             </div>

@@ -1,6 +1,5 @@
 @extends('layouts.admin.pages')
 @section('content')
-<div id="page-content">
     @if($value = \Illuminate\Support\Facades\Session::pull('PasswordChange'))
         <div class="alert alert-success alert-dismissible" style="z-index: 9999">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -43,5 +42,4 @@
         @endforeach
         </tbody>
     </table>
-</div>
 @endsection
