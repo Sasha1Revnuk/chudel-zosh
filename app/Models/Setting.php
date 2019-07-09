@@ -22,6 +22,8 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  */
 class Setting extends Eloquent
 {
+    const TYPE_STRING = 1;
+    const TYPE_NUMBER = 2;
 	protected $fillable = [
 		'name',
 		'value'

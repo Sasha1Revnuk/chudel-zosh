@@ -16,6 +16,7 @@ class AdminController extends Controller
     protected $user;
     protected $role;
     protected $userName;
+    protected $src;
 
     public function __construct()
     {
@@ -51,5 +52,23 @@ class AdminController extends Controller
 
         $ext = pathinfo($filePath, PATHINFO_EXTENSION);
         $image->save($filePath.'_'.'thumbnail'. '.' .$ext);
+    }
+
+    protected function saveDocument($request, $document)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'src' => 'required',
+        ]);
+        $document->name = $request->get('name');
+        $document->src = $request->get('src');
+        return $document->save();
+    }
+
+    protected function deleteDocument($src)
+    {
+        if($src) {
+            return $src->delete();
+        }
     }
 }

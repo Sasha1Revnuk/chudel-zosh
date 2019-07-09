@@ -12,10 +12,10 @@
                 {{$value}}
             </div>
         @endif
-    <h3 class="page-header">Новини</h3>
+    <h3 class="page-header">{{$title}}</h3>
         <div class="row form-group">
             <div class="col-md-4">
-                <a href="{{'/adm/news/add'}}" class="btn btn-success"><i class="fa fa-plus"></i> Додати новину</a>
+                <a href="{{'/adm/our-pride/add'}}" class="btn btn-success"><i class="fa fa-plus"></i> Додати гордість</a>
             </div>
         </div>
     <table class="table table-borderless">
@@ -27,16 +27,15 @@
         </tr>
         </thead>
         <tbody>
-        @if($news)
-            @foreach($news as $item)
+        @if($prides)
+            @foreach($prides as $item)
                 <tr>
                     <td class="text-center">{{$item->id}}</td>
-                    <td><a href="{{$item->getUrl()}}" title="Подивитись на сайті" target="_blank">{{$item->name}}</a></td>
+                    <td>{{$item->name}}</td>
                     <td class="text-center">
                         <div class="btn-group">
-                            <a href="{{'/adm/news/access/' . $item->id}}" data-toggle="tooltip" title="{{$item->status == \App\Models\News::STATUS_ACTIVE ? 'Вимкнути новину на сайті (не видаляти)' : 'Ввімкнути новину'}}" class="btn btn-xs btn-{{$item->status == \App\Models\News::STATUS_ACTIVE ? 'default' : 'info'}}"><i class="{{$item->status == \App\Models\News::STATUS_ACTIVE ? 'fa fa-ban' : 'fa fa-check'}}"></i></a>
-                            <a href="{{'/adm/news/edit/' . $item->id}}" data-toggle="tooltip" title="Редагувати" class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a>
-                            <a href="{{'/adm/news/delete/' . $item->id}}" data-toggle="tooltip" title="Видалити" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                            <a href="{{'/adm/our-pride/edit/' . $item->id}}" data-toggle="tooltip" title="Редагувати" class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a>
+                            <a href="{{'/adm/our-pride/delete/' . $item->id}}" data-toggle="tooltip" title="Видалити" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
                         </div>
                     </td>
                 </tr>
@@ -48,7 +47,7 @@
 
             <div class="col-sm-12 col-xs-12 clearfix">
                 <div class="dataTables_paginate paging_bootstrap" id="example-datatables3_paginate">
-                    {{$news->links('vendor.pagination.admin')}}
+                    {{$prides->links('vendor.pagination.admin')}}
                 </div>
             </div>
         </div>

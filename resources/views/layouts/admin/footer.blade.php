@@ -152,27 +152,15 @@
 <script src="{{asset('/admin/js/plugins.js')}}"></script>
 <script src="{{asset('/admin/js/main.js')}}"></script>
 <script src="{{asset('/admin/js/ckeditor/ckeditor.js')}}"></script>
-@if(Route::currentRouteName() == 'start-test')
-    <script src="{{asset('/admin/js/dist/jquery.progressBarTimer.min.js')}}"></script>
-    <script>
-        $(window).bind({
-            beforeunload: function() {
-                $('#button').trigger('click');            }
-        });
-        $("#example-progress-bar").progressBarTimer({
-            timeLimit: 1800, //total number of seconds
-            warningThreshold: 5, //seconds remaining triggering switch to warning color
-            autoStart: true, // start the countdown automatically
-            onFinish: function() {
-                $('#button').trigger('click');
-            }, //invoked once the timer expires
-            baseStyle: 'bg-danger', //bootstrap progress bar style at the beginning of the timer
-            warningStyle: 'bg-danger', //bootstrap progress bar style in the warning phase
-            smooth: true, // should the timer be smooth or stepping
-            completeStyle: 'bg-success' //bootstrap progress bar style at completion of timer
-        }).start()
-    </script>
-@endif
+<script>
+    $("#turn").on('change', function() {
+        if($("#push").is(':hidden')) {
+            $("#push").show('');
+        } else {
+            $("#push").hide();
+        }
+    });
+</script>
 <!-- Javascript code only for this page -->
 </body>
 </html>

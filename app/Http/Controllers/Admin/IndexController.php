@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\MainText;
 use App\Models\RoleUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -104,6 +106,38 @@ class IndexController extends AdminController
         $roleUser = RoleUser::where('user_id', $id)->first();
         $roleUser->delete();
         $user->delete();
+
+        return redirect()->back();
+    }
+
+    public function mainText(Request $request)
+    {
+        return view('admin.main.form')->with([
+            'title' => 'Текст на головній',
+            'userName' => $this->userName,
+            'text' => MainText::first()
+        ]);
+    }
+
+    public function saveMainText(Request $request)
+    {
+        $this->validate($request, [
+            'banner' => 'required',
+            'history' => 'required',
+            'teachers' => 'required',
+        ]);
+        $history = str_replace('https://drive.google.com/file/d/', 'https://docs.google.com/uc?id=', $request->get('history'));
+        $history = str_replace('/view?usp=sharing', ' ', $history);
+        $teachers = str_replace('https://drive.google.com/file/d/', 'https://docs.google.com/uc?id=', $request->get('teachers'));
+        $teachers = str_replace('/view?usp=sharing', ' ', $teachers);
+        DB::transaction(function() use ($request, $history, $teachers) {
+            $text = MainText::find($request->get('id'));
+            $text->banner_label = $request->get('banner');
+            $text->history = $history;
+            $text->teachers = $teachers;
+            $text->save();
+
+        });
 
         return redirect()->back();
     }

@@ -26,9 +26,11 @@ class SymbolismController extends AdminController
         $this->validate($request, [
             'gimn' => 'required',
         ]);
-        DB::transaction(function() use ($request) {
+        $text = str_replace('https://drive.google.com/file/d/', 'https://docs.google.com/uc?id=', $request->get('gimn'));
+        $text = str_replace('/view?usp=sharing', ' ', $text);
+        DB::transaction(function() use ($request, $text) {
             $symbolism = Symbolism::find($request->get('id'));
-            $symbolism->gimn = $request->get('gimn');
+            $symbolism->gimn = $text;
             $symbolism->save();
             if($request->file('gerb')){
                 $symbolism->gerb = $this->saveSymbolic($request, $symbolism, 'gerb');
