@@ -21,7 +21,7 @@
                 <div class="col-md-3">
                     <input type="file" id="example-file" name="image" class="form-control">
                 </div>
-                <span class="help-block"><code>Ширина зображення повинна бути не меньша ніж <b style="font-size: 15px">1980 px.</b> для якісного відображення</code></span>
+                <span class="help-block"><code>Ширина зображення повинна бути не меньша ніж <b style="font-size: 15px">1920 px.</b> для якісного відображення</code></span>
             </div>
 
             <div class="form-group form-actions">

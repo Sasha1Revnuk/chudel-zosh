@@ -51,8 +51,10 @@ class SliderController extends AdminController
                 'image' => 'required',
             ]);
         }
+
         DB::transaction(function() use ($request) {
             $slider = $request->get('id') ? Banner::find($request->get('id')) : new Banner();
+
             $slider->save();
             $slider->image = $this->saveImage($request, $slider);
             $slider->save();
@@ -75,6 +77,7 @@ class SliderController extends AdminController
     protected function saveImage(Request $request, Banner $slider)
     {
         $file = $request->file('image');
+
         if ($file) {
             return $this->uploadImage($file, 'slider_' . Str::random(3), $slider->id);
         } else {
