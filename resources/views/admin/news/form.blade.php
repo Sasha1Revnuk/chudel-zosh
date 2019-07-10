@@ -19,6 +19,19 @@
         @endif
         <div class="form-box-content">
             <div class="form-group">
+                <label class="control-label col-md-2" for="example-input-normal">Поточна дата</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" readonly value="{{$news->created_at ? $news->created_at->format('d-m-Y') : old('created_at')}}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="example-input-normal">Задати дату створення? (Або залиште поле порожнім)</label>
+                <div class="col-md-3">
+                    <input type="date" class="form-control" name="created_at">
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="control-label col-md-2" for="example-input-normal">Назва</label>
                 <div class="col-md-3">
                     <input type="text" id="example-input-normal" name="name" class="form-control" required value="{{$news ? $news->name : old('name')}}">

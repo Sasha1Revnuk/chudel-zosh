@@ -19,8 +19,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'others', groups: [ 'others' ] },
 		{ name: 'about', groups: [ 'about' ] }
 	];
-
+	config.extraPlugins = 'lineheight';
 	config.removeButtons = 'Save,NewPage,Print,Templates,Preview,Replace,Paste,PasteText,PasteFromWord,Copy,Cut,Find,SelectAll,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Language,BidiRtl,BidiLtr,Anchor,Flash,PageBreak,Iframe,ShowBlocks,About';
-    config.extraPlugins = 'uploadimage';
-    config.extraPlugins = 'filebrowser';
+    
 };

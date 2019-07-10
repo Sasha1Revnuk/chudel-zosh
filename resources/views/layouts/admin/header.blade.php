@@ -86,7 +86,7 @@
                     <li class="divider"></li>
                     <li>
                         <!-- Modal div is at the bottom of the page before including javascript code -->
-                        <a href="#modal-user-password" role="button" data-toggle="modal"><i class="fa fa-cogs"></i> Змігити пароль</a>
+                        <a href="#modal-user-password" role="button" data-toggle="modal"><i class="fa fa-cogs"></i> Змінити пароль</a>
                     </li>
                     <li>
                         <!-- Modal div is at the bottom of the page before including javascript code -->
