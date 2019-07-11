@@ -14,7 +14,7 @@ class CivilSaveController extends Controller
             'userName' =>$this->userName,
             'user' => $this->user,
             'role' => $this->role,
-            'title' => 'Цивілний захист',
+            'title' => 'Цивільний захист',
             'documents' => CivilSafe::all()
 
         ];

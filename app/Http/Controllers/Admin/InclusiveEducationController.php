@@ -9,32 +9,59 @@ use Illuminate\Support\Facades\DB;
 
 class InclusiveEducationController extends AdminController
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->src = 'inclusive-education';
+    }
+
     public function index()
     {
-        return view('admin.inclusive.index')->with([
+        return view('admin.layouts.documents.index')->with([
             'title' => 'Інклюзивне навчання',
             'userName' => $this->userName,
-            'inclusive' => InclusiveWork::first()
+            'documents' => InclusiveWork::orderBy('created_at', 'desc')->paginate(15),
+            'src' => $this->src
         ]);
 
     }
 
+    public function add()
+    {
+        $document = new InclusiveWork();
+        return view('admin.layouts.documents.form')->with([
+            'title' => 'Додати посилання',
+            'userName' => $this->userName,
+            'document' => $document,
+            'src' => $this->src
+        ]);
+    }
+
+    public function edit($id)
+    {
+        $document = InclusiveWork::find($id);
+        return view('admin.layouts.documents.form')->with([
+            'title' => 'Редагувати посилання',
+            'userName' => $this->userName,
+            'document' => $document,
+            'src' => $this->src
+        ]);
+    }
+
     public function save(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'text' => 'required',
-        ]);
-        $text = str_replace('https://drive.google.com/file/d/', 'https://docs.google.com/uc?id=', $request->get('text'));
-        $text = str_replace('/view?usp=sharing', ' ', $text);
-        DB::transaction(function() use ($request, $text) {
-            $inclusive = InclusiveWork::find($request->get('id'));
-            $inclusive->name = $request->get('name');
-            $inclusive->text = $text;
-            $inclusive->save();
+        $this->saveDocument($request, $request->get('id') ? InclusiveWork::find($request->get('id')) : new InclusiveWork());
+        if($request->get('id')) {
+            return redirect()->back();
+        } else {
+            return redirect('/adm/' . $this->src);
+        }
+    }
 
-        });
-
+    public function delete($id)
+    {
+        $src = InclusiveWork::find($id);
+        $this->deleteDocument($src);
         return redirect()->back();
     }
 }

@@ -36,8 +36,8 @@
                     <ul class="list-unstyled">
                         <li><a href="/"><span class="ion-ios-arrow-round-forward mr-2"></span>Головна</a></li>
                         <li><a style="color: rgba(255, 255, 255, 0.7)"><span class="ion-ios-arrow-round-forward mr-2"></span>Управлінська діяльність</a></li>
-                            <li style="margin-left: 15px"><a href="/attestation"><span class="ion-ios-arrow-round-forward mr-2"></span>Атестація</a></li>
-                            <li style="margin-left: 15px"><a href="/library"><span class="ion-ios-arrow-round-forward mr-2"></span>Шкілька бібліотека</a></li>
+                            <li style="margin-left: 15px"><a href="/atestation"><span class="ion-ios-arrow-round-forward mr-2"></span>Атестація</a></li>
+                            <li style="margin-left: 15px"><a href="/library"><span class="ion-ios-arrow-round-forward mr-2"></span>Шкільна бібліотека</a></li>
                             <li style="margin-left: 15px"><a href="/psychological-service"><span class="ion-ios-arrow-round-forward mr-2"></span>Психологічна служба</a></li>
                             <li style="margin-left: 15px"><a href="/civil-save"><span class="ion-ios-arrow-round-forward mr-2"></span>Цивільний захист</a></li>
                             <li style="margin-left: 15px"><a href="/normy"><span class="ion-ios-arrow-round-forward mr-2"></span>Документи</a></li>
@@ -46,16 +46,16 @@
                                 <a  href="/methodical-work" ><span class="ion-ios-arrow-round-forward mr-2"></span>Методична робота</a>
                             </li>
                             <li style="margin-left: 15px">
-                                <a  href="/methodical-work" ><span class="ion-ios-arrow-round-forward mr-2"></span>Виховна робота</a>
+                                <a  href="/educational-activities" ><span class="ion-ios-arrow-round-forward mr-2"></span>Виховна робота</a>
                             </li>
                             <li style="margin-left: 15px">
-                                <a href="/methodical-work"> <span class="ion-ios-arrow-round-forward mr-2"></span>Навчальна робота</a>
+                                <a href="/educational-work"> <span class="ion-ios-arrow-round-forward mr-2"></span>Навчальна робота</a>
                             </li>
                             <li style="margin-left: 15px">
-                                <a href="/methodical-work" ><span class="ion-ios-arrow-round-forward mr-2"></span>Інклюзивне навчнання</a>
+                                <a href="/inclusive-education" ><span class="ion-ios-arrow-round-forward mr-2"></span>Інклюзивне навчанання</a>
                             </li>
                             <li style="margin-left: 15px">
-                                <a href="/methodical-work"> <span class="ion-ios-arrow-round-forward mr-2"></span>Профільне навчання та профорієнтація</a>
+                                <a href="/professional-training-and-career-guidance"> <span class="ion-ios-arrow-round-forward mr-2"></span>Профільне навчання та профорієнтація</a>
                             </li>
                             <li style="margin-left: 15px"><a href="/nush"><span class="ion-ios-arrow-round-forward mr-2"></span>НУШ</a></li>
                             <li style="margin-left: 15px"   ><a href="/zno-dpa"><span class="ion-ios-arrow-round-forward mr-2"></span>ДПА і ЗНО</a></li>
@@ -63,7 +63,7 @@
                         <li><a href="/public-information" ><span class="ion-ios-arrow-round-forward mr-2"></span>Публічна інформація</a></li>
                         <li><a href="/news"><span class="ion-ios-arrow-round-forward mr-2"></span>Новини</a></li>
                         <li><a href="/for-pupils"><span class="ion-ios-arrow-round-forward mr-2"></span>Учням</a></li>
-                        <li><a href="/for-parants"><span class="ion-ios-arrow-round-forward mr-2"></span>Батькам</a></li>
+                        <li><a href="/for-pare  nts"><span class="ion-ios-arrow-round-forward mr-2"></span>Батькам</a></li>
                         <li><a href="/our-pride"><span class="ion-ios-arrow-round-forward mr-2"></span>Наша гордість</a></li>
                         <li><a href="/archive"><span class="ion-ios-arrow-round-forward mr-2"></span>Архів</a></li>
                     </ul>
