@@ -149,8 +149,10 @@ Route::group(['prefix' => 'adm'], function(){
 
     Route::group(['prefix' => 'inclusive-education'], function () {
         Route::get('/', 'Admin\InclusiveEducationController@index')->name('admin-inclusive-education');
-        Route::post('/save', 'Admin\InclusiveEducationController@save')->name('save-inclusive-education');
-
+        Route::get('/delete/{id}', 'Admin\InclusiveEducationController@delete')->name('delete-admin-inclusive-education');
+        Route::get('/edit/{id}', 'Admin\InclusiveEducationController@edit')->name('edit-admin-inclusive-education');
+        Route::get('/add', 'Admin\InclusiveEducationController@add')->name('add-admin-inclusive-education');
+        Route::post('/save', 'Admin\InclusiveEducationController@save')->name('save-admin-inclusive-education');
     });
 
     Route::group(['prefix' => 'professional-training-and-career-guidance'], function () {

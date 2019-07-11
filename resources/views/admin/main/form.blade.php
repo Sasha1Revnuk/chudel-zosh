@@ -18,8 +18,8 @@
         <div class="form-box-content">
             <div class="form-group">
                 <label class="control-label col-md-2" for="example-input-normal">Напис на банері</label>
-                <div class="col-md-3">
-                    <input type="text" id="example-input-normal" name="banner" class="form-control" required value="{{$text ? $text->banner_label : old('banner')}}">
+                <div class="col-md-10">
+                    <textarea id="example-textarea-ckeditor" name="banner" required class="ckeditor">{{$text ? $text->banner_label : old('banner')}}</textarea>
                 </div>
             </div>
             <div class="form-group">

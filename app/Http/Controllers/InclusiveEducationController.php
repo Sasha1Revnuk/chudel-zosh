@@ -15,9 +15,9 @@ class InclusiveEducationController extends Controller
             'user' => $this->user,
             'role' => $this->role,
             'title' => 'Інклюзивне навчання',
-            'inclusive' => InclusiveWork::first()
+            'documents' => InclusiveWork::all()
 
         ];
-        return view ('inclusive')->with(['data' => $data]);
+        return view ('layouts.documents')->with(['data' => $data]);
     }
 }
