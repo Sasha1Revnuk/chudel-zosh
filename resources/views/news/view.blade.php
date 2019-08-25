@@ -15,7 +15,6 @@
                         <div class="about-author mt-12" style="margin-top: 30px; display: flex; flex-direction: row; justify-content: space-between;">
                                 <h6><a style=""><span class="icon-calendar"></span> {{$data['news']->created_at->format('d')
                                     . ' ' . $data['news']->getMonth($data['news']->created_at->format('F')) . ', ' . $data['news']->created_at->format('Y')}}</a></h6>
-                            <h6><b>Автор: </b>{{$data['news']->user->full_name}}</h6>
                         </div>
                     </div> <!-- .col-md-8 -->
 
@@ -41,7 +40,6 @@
                                     <div class="meta">
                                         <div><a><span class="icon-calendar"></span> {{$lastNews->created_at->format('d')
                                         . ' ' . $lastNews->getMonth($lastNews->created_at->format('F')) . ', ' . $lastNews->created_at->format('Y')}}</a></div>
-                                        <div><a><span class="icon-person"></span> {{$lastNews->user->full_name}}</a></div>
                                     </div>
                                 </div>
                             </div>

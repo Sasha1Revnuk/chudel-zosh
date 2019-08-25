@@ -23,7 +23,6 @@
                             <h3 class="heading"><a href="{{$news->getUrl()}}">{{$news->name}}</a></h3>
                             <div class="meta">
                                 <div><a><span class="icon-calendar"></span> {{$news->created_at}}</a></div>
-                                <div><a><span class="icon-person"></span> {{$news->user->full_name}}</a></div>
                             </div>
                         </div>
                     </div>

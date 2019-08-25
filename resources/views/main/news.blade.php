@@ -21,9 +21,6 @@
                         <p>{{$news->description}}</p>
                         <div class="d-flex align-items-center mt-4">
                             <p class="mb-0"><a href="{{$news->getUrl()}}" class="btn btn-secondary">Читати детальніше <span class="ion-ios-arrow-round-forward"></span></a></p>
-                            <p class="ml-auto mb-0">
-                                <a class="mr-2">{{$news->user->full_name}}</a>
-                            </p>
                         </div>
                     </div>
                 </div>
